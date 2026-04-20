@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charlotte Oldsman — Creative Strategist & Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --fg: #111;
+    --fg2: #888;
+    --bg: #fff;
+    --bg2: #f5f5f3;
+    --border: rgba(0,0,0,0.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { background: var(--bg); color: var(--fg); font-family: var(--sans); }
+  body { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+  /* NAV */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 0.5px solid var(--border); }
+  .nav-logo { font-family: var(--sans); font-size: 13px; letter-spacing: 0.06em; font-weight: 400; color: var(--fg); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-decoration: none; color: var(--fg2); cursor: pointer; transition: color 0.2s; text-transform: uppercase; font-family: var(--sans); }
+  .nav-links a:hover, .nav-links a.active { color: var(--fg); }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { padding: 5rem 0 0; border-bottom: 0.5px solid var(--border); }
+  .hero-eyebrow { font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 1.75rem; }
+  .hero-title { font-family: var(--serif); font-size: 64px; font-weight: 400; line-height: 1.05; margin-bottom: 2rem; color: var(--fg); }
+  .hero-title em { font-style: italic; }
+  .hero-sub { font-family: var(--sans); font-size: 15px; color: var(--fg2); max-width: 480px; line-height: 1.9; font-weight: 300; }
+  .hero-cta { margin-top: 2.5rem; margin-bottom: 3.5rem; display: flex; gap: 1.5rem; align-items: center; }
+  .btn-primary { font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.75rem 1.5rem; border: 0.5px solid var(--fg); background: var(--fg); color: var(--bg); cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: transparent; color: var(--fg); }
+  .btn-ghost { font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg2); cursor: pointer; background: none; border: none; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--fg); }
+
+  /* TICKERS */
+  .ticker-wrap { border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); overflow: hidden; padding: 0.85rem 0; position: relative; }
+  .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 60px; height: 100%; z-index: 2; pointer-events: none; }
+  .ticker-wrap::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
+  .ticker-wrap::after { right: 0; background: linear-gradient(to left, #fff, transparent); }
+  .ticker-track { display: flex; white-space: nowrap; animation: ticker 65s linear infinite; width: max-content; }
+  .ticker-track:hover { animation-play-state: paused; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .ticker-item { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); padding: 0 1.5rem; display: inline-block; }
+  .ticker-dot { font-size: 8px; color: var(--border); display: inline-block; vertical-align: middle; }
+
+  .talent-ticker-wrap { overflow: hidden; position: relative; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 1.25rem 0; }
+  .talent-ticker-wrap::before, .talent-ticker-wrap::after { content: ''; position: absolute; top: 0; width: 80px; height: 100%; z-index: 2; pointer-events: none; }
+  .talent-ticker-wrap::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
+  .talent-ticker-wrap::after { right: 0; background: linear-gradient(to left, #fff, transparent); }
+  .talent-track { display: flex; align-items: center; gap: 2.5rem; white-space: nowrap; animation: talent-scroll 40s linear infinite; width: max-content; }
+  .talent-track:hover { animation-play-state: paused; }
+  @keyframes talent-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .talent-card { display: inline-flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+  .talent-headshot { width: 52px; height: 52px; border-radius: 50%; background: var(--bg2); border: 0.5px solid var(--border); overflow: hidden; flex-shrink: 0; }
+  .talent-headshot img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .talent-info { display: flex; flex-direction: column; }
+  .talent-name { font-family: var(--sans); font-size: 12px; letter-spacing: 0.04em; color: var(--fg); white-space: nowrap; }
+  .talent-credit { font-family: var(--sans); font-size: 10px; letter-spacing: 0.06em; color: var(--fg2); white-space: nowrap; }
+  .talent-divider { width: 1px; height: 32px; background: var(--border); flex-shrink: 0; }
+
+  /* WORK */
+  .work-header { padding: 3rem 0 2rem; border-bottom: 0.5px solid var(--border); }
+  .work-header h2 { font-family: var(--serif); font-size: 44px; font-weight: 400; color: var(--fg); }
+  .work-filters { display: flex; gap: 1.5rem; margin-top: 1rem; }
+  .filter-btn { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: none; border: none; color: var(--fg2); cursor: pointer; padding: 0; transition: color 0.2s; }
+  .filter-btn:hover, .filter-btn.active { color: var(--fg); }
+  .filter-btn.active { text-decoration: underline; text-underline-offset: 4px; }
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .project-item { border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 2rem 2rem 2rem 0; cursor: pointer; transition: opacity 0.2s; }
+  .project-item:nth-child(even) { padding-left: 2rem; padding-right: 0; border-right: none; }
+  .project-item:last-child:nth-child(odd) { border-right: none; }
+  .project-item:hover { opacity: 0.7; }
+  .project-thumb { width: 100%; aspect-ratio: 16/9; background: var(--bg2); border: 0.5px solid var(--border); margin-bottom: 1rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb-tag { position: absolute; top: 0.5rem; left: 0.5rem; font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg2); background: var(--bg); padding: 3px 7px; border: 0.5px solid var(--border); z-index: 1; }
+  .project-num { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: var(--fg2); margin-bottom: 0.35rem; }
+  .project-name { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); margin-bottom: 0.4rem; line-height: 1.2; }
+  .project-desc { font-family: var(--sans); font-size: 12px; color: var(--fg2); line-height: 1.9; font-weight: 300; }
+  .project-meta { margin-top: 0.75rem; font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg2); }
+
+  /* DETAIL */
+  .project-detail { display: none; padding: 2.5rem 0; }
+  .project-detail.active { display: block; }
+  .back-btn { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg2); background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 2.5rem; display: inline-block; transition: color 0.2s; }
+  .back-btn:hover { color: var(--fg); }
+  .detail-eyebrow { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 1rem; }
+  .detail-title { font-family: var(--serif); font-size: 48px; font-weight: 400; line-height: 1.05; color: var(--fg); margin-bottom: 2rem; }
+  .detail-title em { font-style: italic; }
+  .detail-banner { width: 100%; aspect-ratio: 21/9; border: 0.5px solid var(--border); margin-bottom: 2rem; overflow: hidden; }
+  .detail-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .main-video-wrap { position: relative; padding-bottom: 56.25%; background: var(--bg2); border: 0.5px solid var(--border); }
+  .main-video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .carousel-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.75rem; }
+  .carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2.5rem; }
+  .carousel-thumb { aspect-ratio: 16/9; background: var(--bg2); border: 0.5px solid var(--border); position: relative; cursor: pointer; transition: border-color 0.2s; overflow: hidden; }
+  .carousel-thumb.active { border-color: #111; }
+  .carousel-thumb:hover { border-color: #888; }
+  .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.15); }
+  .thumb-play { font-size: 18px; color: #fff; opacity: 0.85; }
+  .thumb-title { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.4rem 0.5rem; background: rgba(0,0,0,0.45); font-family: var(--sans); font-size: 10px; letter-spacing: 0.06em; color: #fff; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .detail-meta-block { border-top: 0.5px solid var(--border); padding-top: 1.25rem; margin-bottom: 1.5rem; }
+  .detail-meta-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.5rem; }
+  .detail-meta-val { font-family: var(--sans); font-size: 12px; color: var(--fg); line-height: 1.9; }
+  .detail-body h3 { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.75rem; margin-top: 2rem; border-top: 0.5px solid var(--border); padding-top: 1.25rem; }
+  .detail-body h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+  .detail-body p { font-family: var(--sans); font-size: 13px; color: var(--fg2); line-height: 2; font-weight: 300; }
+  .gif-wrap { display: flex; justify-content: center; margin-top: 2rem; border-top: 0.5px solid var(--border); padding-top: 2rem; }
+  .gif-wrap img { width: 280px; max-width: 100%; border: 0.5px solid var(--border); display: block; }
+  .quote-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; align-items: start; border-top: 0.5px solid var(--border); padding-top: 2rem; }
+  .yt-thumb { position: relative; display: block; border: 0.5px solid var(--border); overflow: hidden; cursor: pointer; transition: opacity 0.2s; }
+  .yt-thumb:hover { opacity: 0.85; }
+  .yt-thumb img { width: 100%; display: block; }
+  .yt-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .yt-play-btn { width: 48px; height: 48px; background: rgba(0,0,0,0.65); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .yt-play-btn span { font-size: 16px; color: #fff; margin-left: 3px; }
+  .yt-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.4rem 0.6rem; background: rgba(0,0,0,0.5); font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; }
+  .quotes { display: flex; flex-direction: column; gap: 1.25rem; }
+  .quote-item { border-left: 0.5px solid var(--border); padding-left: 1rem; }
+  .quote-text { font-family: var(--serif); font-size: 18px; font-weight: 400; font-style: italic; color: var(--fg); line-height: 1.45; margin-bottom: 0.4rem; }
+  .quote-attr { font-family: var(--sans); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg2); }
+  .section-divider { border-top: 0.5px solid var(--border); margin-top: 2.5rem; padding-top: 2rem; }
+  .section-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.5rem; }
+  .section-desc { font-family: var(--sans); font-size: 13px; color: var(--fg2); line-height: 2; margin-bottom: 1.75rem; max-width: 480px; font-weight: 300; }
+
+  /* GIF SHOWCASE */
+  .gif-showcase { margin-bottom: 2.5rem; }
+  .gif-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .gif-section-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); }
+  .gif-counter { font-family: var(--sans); font-size: 10px; color: var(--fg2); }
+  .gif-frame { width: 100%; aspect-ratio: 16/9; border: 0.5px solid var(--border); overflow: hidden; background: var(--bg2); }
+  .gif-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gif-caption { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0 1.25rem; border-bottom: 0.5px solid var(--border); }
+  .gif-title { font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; color: var(--fg); }
+  .gif-nav { display: flex; gap: 0.75rem; }
+  .gif-arrow { font-family: var(--sans); font-size: 13px; background: none; border: 0.5px solid var(--border); color: var(--fg2); cursor: pointer; padding: 0.3rem 0.7rem; transition: all 0.2s; line-height: 1; }
+  .gif-arrow:hover { color: var(--fg); border-color: var(--fg); }
+  .gif-dots { display: flex; justify-content: center; gap: 6px; padding-top: 1.25rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .gif-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; transition: background 0.2s; }
+  .gif-dot.active { background: var(--fg); }
+
+  /* FEATURE GIFS */
+  .feature-section { border-top: 0.5px solid var(--border); padding-top: 2rem; }
+  .feature-section-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 2rem; }
+  .feature-item { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 0.5px solid var(--border); }
+  .feature-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .feature-item.vertical-layout { grid-template-columns: auto 1fr; }
+  .feature-gif { border: 0.5px solid var(--border); overflow: hidden; background: var(--bg2); }
+  .feature-gif.horizontal { aspect-ratio: 16/9; }
+  .feature-gif.horizontal img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .feature-gif.vertical-gif { width: 160px; }
+  .feature-gif.vertical-gif img { width: 100%; display: block; }
+  .feature-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: var(--fg); margin-bottom: 0.75rem; line-height: 1.2; }
+  .feature-desc { font-family: var(--sans); font-size: 13px; color: var(--fg2); line-height: 2; font-weight: 300; }
+
+  /* VIDEO */
+  .video-section { border-top: 0.5px solid var(--border); padding-top: 2rem; margin-bottom: 2rem; }
+  .video-section-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .video-counter { font-family: var(--sans); font-size: 10px; color: var(--fg2); }
+  .video-title-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .current-title { font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; color: var(--fg); }
+  .nav-arrows { display: flex; gap: 0.75rem; }
+  .arrow-btn { font-family: var(--sans); font-size: 13px; background: none; border: 0.5px solid var(--border); color: var(--fg2); cursor: pointer; padding: 0.25rem 0.6rem; transition: all 0.2s; line-height: 1; }
+  .arrow-btn:hover { color: var(--fg); border-color: var(--fg); }
+  .thumb-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .strip-thumb { aspect-ratio: 16/9; background: var(--bg2); border: 0.5px solid var(--border); position: relative; cursor: pointer; overflow: hidden; transition: border-color 0.2s; }
+  .strip-thumb.active { border-color: #111; }
+  .strip-thumb:hover { border-color: #888; }
+  .strip-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .strip-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center; }
+  .strip-thumb.active .strip-overlay { background: rgba(0,0,0,0.3); }
+  .strip-play { font-size: 14px; color: #fff; opacity: 0.8; }
+  .strip-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.35rem 0.4rem; background: rgba(0,0,0,0.5); font-family: var(--sans); font-size: 9px; letter-spacing: 0.05em; color: #fff; line-height: 1.3; }
+  .strip-num { position: absolute; top: 0.35rem; right: 0.4rem; font-family: var(--sans); font-size: 9px; color: rgba(255,255,255,0.6); }
+  .strip-nav { display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
+  .strip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); cursor: pointer; transition: background 0.2s; border: none; padding: 0; }
+  .strip-dot.active { background: var(--fg); }
+
+  /* ABOUT */
+  .bio-header { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; padding: 3rem 0 2.5rem; border-bottom: 0.5px solid var(--border); align-items: start; }
+  .bio-portrait { width: 100%; aspect-ratio: 3/4; background: var(--bg2); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .bio-portrait span { font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; color: var(--fg2); text-transform: uppercase; }
+  .bio-name { font-family: var(--serif); font-size: 48px; font-weight: 400; line-height: 1.05; color: var(--fg); margin-bottom: 0.5rem; }
+  .bio-name em { font-style: italic; }
+  .bio-job-title { font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg2); margin-bottom: 1.75rem; }
+  .bio-text { font-family: var(--sans); font-size: 13px; color: var(--fg2); line-height: 2; font-weight: 300; margin-bottom: 1.25rem; }
+  .bio-availability { display: inline-block; font-family: var(--sans); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border: 0.5px solid var(--border); padding: 0.5rem 0.9rem; color: var(--fg2); margin-top: 0.5rem; }
+  .avail-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #5cb85c; margin-right: 0.5rem; vertical-align: middle; }
+  .bio-section { padding: 2rem 0; border-bottom: 0.5px solid var(--border); }
+  .bio-section:last-child { border-bottom: none; }
+  .section-heading { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 1.25rem; }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag { font-family: var(--sans); font-size: 12px; color: var(--fg); border: 0.5px solid var(--border); padding: 0.4rem 0.8rem; font-weight: 300; }
+  .exp-item { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); }
+  .exp-item:first-child { padding-top: 0; }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-left { display: flex; flex-direction: column; gap: 0.2rem; }
+  .exp-company { font-family: var(--sans); font-size: 13px; color: var(--fg); }
+  .exp-role { font-family: var(--sans); font-size: 12px; color: var(--fg2); font-weight: 300; }
+  .exp-dates { font-family: var(--sans); font-size: 11px; color: var(--fg2); white-space: nowrap; }
+  .credits-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .credit-item { padding: 0.7rem 0; border-bottom: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .credit-item:nth-child(odd) { padding-right: 1.5rem; border-right: 0.5px solid var(--border); }
+  .credit-item:nth-child(even) { padding-left: 1.5rem; }
+  .credit-title { font-family: var(--sans); font-size: 13px; color: var(--fg); }
+  .credit-type { font-family: var(--sans); font-size: 10px; color: var(--fg2); letter-spacing: 0.08em; text-transform: uppercase; }
+  .edu-item { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .edu-degree { font-family: var(--sans); font-size: 13px; color: var(--fg); }
+  .edu-school { font-family: var(--sans); font-size: 12px; color: var(--fg2); font-weight: 300; }
+  .edu-year { font-family: var(--sans); font-size: 11px; color: var(--fg2); white-space: nowrap; }
+  .contact-info-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .contact-info-item { border: 0.5px solid var(--border); padding: 0.85rem 1rem; }
+  .contact-info-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg2); display: block; margin-bottom: 0.3rem; }
+  .contact-info-val { font-family: var(--sans); font-size: 13px; color: var(--fg); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-grid.full { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg2); }
+  input[type="text"], input[type="email"], textarea, select { font-family: var(--sans); font-size: 13px; color: var(--fg); background: var(--bg); border: 0.5px solid var(--border); padding: 0.65rem 0.75rem; width: 100%; transition: border-color 0.2s; outline: none; -webkit-appearance: none; }
+  input:focus, textarea:focus, select:focus { border-color: var(--fg); }
+  textarea { resize: vertical; min-height: 100px; }
+  .submit-btn { font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.75rem 2rem; border: 0.5px solid var(--fg); background: var(--fg); color: var(--bg); cursor: pointer; transition: all 0.2s; margin-top: 0.5rem; }
+  .submit-btn:hover { background: transparent; color: var(--fg); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Charlotte Oldsman</div>
+  <div class="nav-links">
+    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
+    <a onclick="showPage('work')" id="nav-work">Work</a>
+    <a onclick="showPage('bio')" id="nav-bio">About</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-eyebrow">Creative Strategist &amp; Producer &mdash; Brooklyn, NY</div>
+    <h1 class="hero-title">Creative vision<br>meets flawless<br><em>execution.</em></h1>
+    <p class="hero-sub">14+ years turning ideas into impact across media &amp; entertainment. From brand campaigns to streaming innovation — connecting stories, audiences, and culture at scale.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="showPage('work')">View Work</button>
+      <button class="btn-ghost" onclick="showPage('bio')">About Charlotte &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<div class="page" id="page-work">
+  <div id="work-list">
+    <div class="work-header">
+      <h2>Selected Work</h2>
+      <div class="work-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Brand Marketing</button>
+        <button class="filter-btn">Innovation</button>
+        <button class="filter-btn">Integrated Marketing</button>
+      </div>
+    </div>
+    <div class="project-grid">
+      <div class="project-item" onclick="showDetail('hbo')">
+        <div class="project-thumb"><img src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="HBO Max"><span class="thumb-tag">Brand Marketing</span></div>
+        <div class="project-num">01</div>
+        <div class="project-name">HBO Max — Recommended By</div>
+        <div class="project-desc">An original short-form series turning talent recommendations into a personalized discovery engine — in-app, on social, and across CRM.</div>
+        <div class="project-meta">HBO Max &mdash; Strategist, Producer, Writer, Director</div>
+      </div>
+      <div class="project-item" onclick="showDetail('paramount')">
+        <div class="project-thumb"><img src="https://static.wixstatic.com/media/739b20_c35adb133dac48a9a5acbb8be0aea5a2~mv2.gif/v1/fill/w_640,h_360,al_c/739b20_c35adb133dac48a9a5acbb8be0aea5a2~mv2.gif" alt="Paramount"><span class="thumb-tag">Innovation</span></div>
+        <div class="project-num">02</div>
+        <div class="project-name">Paramount Streaming Technology Showcase</div>
+        <div class="project-desc">A first-of-its-kind digital hub spotlighting AI-driven innovation across Paramount+ and Pluto TV, built for 100M+ fans worldwide.</div>
+        <div class="project-meta">Paramount &mdash; Creative Producer</div>
+      </div>
+      <div class="project-item" onclick="showDetail('integrated')">
+        <div class="project-thumb"><img src="https://vumbnail.com/371177666.jpg" alt="Integrated Marketing"><span class="thumb-tag">Integrated Marketing</span></div>
+        <div class="project-num">03</div>
+        <div class="project-name">Integrated Marketing Campaigns</div>
+        <div class="project-desc">360° integrated campaigns for Fortune 500 brands across CPG, beauty, retail, tech, and entertainment — from concept to post-campaign analysis.</div>
+        <div class="project-meta">ViacomCBS &mdash; $25K–$6MM budgets</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HBO MAX -->
+  <div class="project-detail" id="detail-hbo">
+    <button class="back-btn" onclick="showList()">&larr; All Work</button>
+    <div class="detail-eyebrow">Brand Marketing &mdash; HBO Max</div>
+    <h2 class="detail-title">Recommended<br><em>By</em></h2>
+    <div class="detail-banner"><img src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="Recommended By banner"></div>
+    <div class="main-video-wrap"><iframe id="hbo-iframe" src="https://player.vimeo.com/video/760755091?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <div class="carousel-label" style="margin-top:0.75rem;">Featured Videos</div>
+    <div class="carousel">
+      <div class="carousel-thumb active" onclick="switchHBO('760755091',this)"><img src="https://vumbnail.com/760755091.jpg" alt="Steve Touissant"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Steve Touissant</div></div>
+      <div class="carousel-thumb" onclick="switchHBO('761512074',this)"><img src="https://vumbnail.com/761512074.jpg" alt="Milly Alcock"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Milly Alcock</div></div>
+      <div class="carousel-thumb" onclick="switchHBO('760755180',this)"><img src="https://vumbnail.com/760755180.jpg" alt="Fabien Frankel"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Fabien Frankel</div></div>
+    </div>
+    <div class="detail-grid">
+      <div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Role</div><div class="detail-meta-val">Creative Strategist<br>Producer<br>Writer<br>Director</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Client</div><div class="detail-meta-val">HBO Max</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Channels</div><div class="detail-meta-val">In-app<br>Dotcom<br>Social<br>CRM</div></div>
+      </div>
+      <div class="detail-body">
+        <h3>Overview</h3>
+        <p>Led the creative development and production of Recommended By — a brand marketing campaign and original short-form video series spotlighting talent sharing their favorite HBO Max titles.</p>
+        <h3>Scope &amp; Impact</h3>
+        <p>This first-of-its-kind campaign was designed to drive personalization, engagement, and retention by transforming viewer recommendations into a dynamic discovery experience. The videos lived both in-app and across owned channels — dotcom, social, and CRM — serving as on-ramps to new programming and catalysts for rediscovering fan-favorite classics.</p>
+      </div>
+    </div>
+    <div class="gif-wrap"><img src="https://static.wixstatic.com/media/739b20_a62c43e7c59e46758dbb1d56d28cb0b3~mv2.gif" alt="Recommended By GIF"></div>
+    <div class="quote-block">
+      <a class="yt-thumb" href="https://www.youtube.com/watch?v=3hmIwuwZsXQ" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/739b20_17b2d2fc086e49c9a6a3cfe1ae1b318a~mv2.jpg" alt="Watch on YouTube">
+        <div class="yt-play"><div class="yt-play-btn"><span>&#9654;</span></div></div>
+        <div class="yt-label">Watch on YouTube</div>
+      </a>
+      <div class="quotes">
+        <div class="quote-item"><div class="quote-text">"I would patiently watch all these shows with Milly Alcock."</div><div class="quote-attr">@Sagitarius2redx &mdash; 1.1K likes</div></div>
+        <div class="quote-item"><div class="quote-text">"OMG her recommendations — I love her even more now."</div><div class="quote-attr">@mcfroggyswaggy2062</div></div>
+        <div class="quote-item"><div class="quote-text">"Loved Milly's choices and takes on these films. Can't wait to see her in more projects."</div><div class="quote-attr">@reactreel &mdash; 19 likes</div></div>
+      </div>
+    </div>
+    <div class="section-divider">
+      <div class="section-label">Featured Talent</div>
+      <p class="section-desc">Partnered with A-list celebrities and in-house talent to guest-curate personalized watchlists, driving viewership and reducing churn through authentic, relatable storytelling.</p>
+      <div class="talent-ticker-wrap"><div class="talent-track" id="talent-track"></div></div>
+    </div>
+  </div>
+
+  <!-- PARAMOUNT -->
+  <div class="project-detail" id="detail-paramount">
+    <button class="back-btn" onclick="showList()">&larr; All Work</button>
+    <div class="detail-eyebrow">Innovation &mdash; Paramount</div>
+    <h2 class="detail-title">Paramount's Streaming<br><em>Technology Showcase</em></h2>
+    <div class="gif-showcase">
+      <div class="gif-header"><span class="gif-section-label">Showcase Highlights</span><span class="gif-counter" id="gif-counter">1 / 11</span></div>
+      <div class="gif-frame"><img id="gif-img" src="" alt="Showcase GIF"></div>
+      <div class="gif-caption"><span class="gif-title" id="gif-title"></span><div class="gif-nav"><button class="gif-arrow" onclick="gifGo(gifCurrent-1)">&#8592;</button><button class="gif-arrow" onclick="gifGo(gifCurrent+1)">&#8594;</button></div></div>
+      <div class="gif-dots" id="gif-dots"></div>
+    </div>
+    <div class="detail-grid">
+      <div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Role</div><div class="detail-meta-val">Creative Producer</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Platforms</div><div class="detail-meta-val">Paramount+<br>Pluto TV</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Scale</div><div class="detail-meta-val">100M+ fans globally</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Focus Areas</div><div class="detail-meta-val">Product Design<br>Engineering<br>AI Innovation</div></div>
+      </div>
+      <div class="detail-body">
+        <h3>Overview</h3>
+        <p>Led creative production and editorial development of Paramount's first Streaming Technology Showcase — a digital hub designed to spotlight innovation across Paramount+ and Pluto TV.</p>
+        <h3>Scope &amp; Impact</h3>
+        <p>The showcase highlights recent advances in product design, engineering, and AI-driven innovation, illustrating how Paramount harnesses emerging technology to deliver world-class streaming experiences for over 100 million fans globally. Through strategic storytelling, content design, and cross-functional collaboration, the site positions Paramount Streaming Technology as a driver of creativity, technical excellence, and the future of entertainment.</p>
+      </div>
+    </div>
+    <div class="feature-section">
+      <div class="feature-section-label">Featured Innovations</div>
+      <div class="feature-item">
+        <div class="feature-gif horizontal"><img src="https://static.wixstatic.com/media/739b20_1a62d4de2fc94fc6b80ce30511b632ba~mv2.gif/v1/fill/w_960,h_540,al_c/Best%20car%20chases%20ever_S.gif" alt="Scene Detection"></div>
+        <div><div class="feature-title">Scene Detection</div><p class="feature-desc">Emerging AI tools for scene detection and adaptive clipping enable smarter, faster storytelling at scale. Instantly surface the moments that matter most.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-gif horizontal"><img src="https://static.wixstatic.com/media/739b20_7618cc87c22d4e3a8612c997b92e0c4e~mv2.gif/v1/fill/w_960,h_540,al_c/familyscene_S.gif" alt="Daypart Personalization"></div>
+        <div><div class="feature-title">Daypart Personalization</div><p class="feature-desc">From morning news to late-night drama, Paramount's dayparting engine dynamically adapts what viewers see — serving the right story at exactly the right moment.</p></div>
+      </div>
+      <div class="feature-item vertical-layout">
+        <div class="feature-gif vertical-gif"><img src="https://static.wixstatic.com/media/739b20_7c65175d309240aa9d0af4f0ccbe401a~mv2.gif/v1/fill/w_320,h_569,al_c/StreamingTech_03_ShortForm_S.gif" alt="Short Form, Big Impact"></div>
+        <div><div class="feature-title">Short Form, Big Impact</div><p class="feature-desc">Millions of iconic moments from Paramount's extensive catalog — personalized for browsing. From plot twists to sports highlights to breaking news, viewers can sample before diving into their next obsession.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTEGRATED -->
+  <div class="project-detail" id="detail-integrated">
+    <button class="back-btn" onclick="showList()">&larr; All Work</button>
+    <div class="detail-eyebrow">Integrated Marketing &mdash; ViacomCBS</div>
+    <h2 class="detail-title">Integrated<br><em>Marketing Campaigns</em></h2>
+    <div class="detail-grid">
+      <div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Role</div><div class="detail-meta-val">Director of Integrated Marketing<br>Campaign Lead</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Verticals</div><div class="detail-meta-val">CPG<br>Beauty<br>Retail<br>Tech<br>Entertainment</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Budget Range</div><div class="detail-meta-val">$25K – $6MM</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Touchpoints</div><div class="detail-meta-val">Digital<br>Social<br>Linear<br>Experiential<br>Retail</div></div>
+      </div>
+      <div class="detail-body">
+        <h3>Overview</h3>
+        <p>Led integrated and influencer marketing initiatives for Fortune 500 brands across CPG, beauty, retail, tech, and entertainment verticals. Developed audience-first campaign strategies and branded content solutions that leveraged ViacomCBS' IP, talent access, and cross-platform ecosystem to deliver creative storytelling with measurable business impact.</p>
+        <h3>Scope &amp; Impact</h3>
+        <p>Produced 360° activations spanning digital, social, linear, experiential, and retail touchpoints, with budgets ranging from $25K to $6MM. Oversaw end-to-end campaign development — from concepting and influencer collaborations to production and post-campaign analysis — driving engagement, ROI, and long-term brand growth.</p>
+      </div>
+    </div>
+    <div class="ticker-wrap" style="margin-bottom:2rem;"><div class="ticker-track" id="brand-ticker"></div></div>
+    <div class="video-section">
+      <div class="video-section-label"><span>Campaign Videos</span><span class="video-counter" id="int-counter">1 / 11</span></div>
+      <div class="main-video-wrap"><iframe id="int-iframe" src="https://player.vimeo.com/video/371177666?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <div class="video-title-bar"><span class="current-title" id="int-title">Frosted Flakes — Ben Simmons</span><div class="nav-arrows"><button class="arrow-btn" onclick="intPrev()">&#8592;</button><button class="arrow-btn" onclick="intNext()">&#8594;</button></div></div>
+      <div class="thumb-strip" id="int-strip"></div>
+      <div class="strip-nav" id="int-nav"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-bio">
+  <div class="bio-header">
+    <div class="bio-portrait"><span>Photo</span></div>
+    <div>
+      <h1 class="bio-name">Charlotte<br><em>Oldsman</em></h1>
+      <div class="bio-job-title">Marketing Director &amp; Creative Producer</div>
+      <p class="bio-text">High-performing creative strategist and production leader with 14+ years in media &amp; entertainment. Expertise in brand marketing strategy, integrated campaign development, and large-scale production operations — passionate about leveraging innovative tools and storytelling to educate, entertain, and connect audiences.</p>
+      <p class="bio-text">Based in Brooklyn, NY.</p>
+      <div class="bio-availability"><span class="avail-dot"></span>Open to full-time, fractional &amp; contract work</div>
+    </div>
+  </div>
+  <div class="bio-section">
+    <div class="section-heading">Core Competencies</div>
+    <div class="skills-grid">
+      <span class="skill-tag">Brand Strategy</span><span class="skill-tag">Campaign Development</span><span class="skill-tag">Creative Direction</span><span class="skill-tag">Video Production</span><span class="skill-tag">Integrated Marketing</span><span class="skill-tag">Audience Insights</span><span class="skill-tag">Content Strategy</span><span class="skill-tag">Go-To-Market</span><span class="skill-tag">Performance Optimization</span><span class="skill-tag">Influencer Marketing</span><span class="skill-tag">Communications</span><span class="skill-tag">Cross-Functional Leadership</span>
+    </div>
+  </div>
+  <div class="bio-section">
+    <div class="section-heading">Experience</div>
+    <div class="exp-item"><div class="exp-left"><span class="exp-company">Paramount</span><span class="exp-role">Director, Innovation</span></div><span class="exp-dates">2023 – 2026</span></div>
+    <div class="exp-item"><div class="exp-left"><span class="exp-company">HBO Max</span><span class="exp-role">Senior Creative, Brand Marketing</span></div><span class="exp-dates">2022 – 2023</span></div>
+    <div class="exp-item"><div class="exp-left"><span class="exp-company">ViacomCBS</span><span class="exp-role">Director, Integrated Marketing</span></div><span class="exp-dates">2018 – 2022</span></div>
+    <div class="exp-item"><div class="exp-left"><span class="exp-company">WHOSAY</span><span class="exp-role">Manager, Influencer Marketing</span></div><span class="exp-dates">2017 – 2018</span></div>
+    <div class="exp-item"><div class="exp-left"><span class="exp-company">Nickelodeon</span><span class="exp-role">Coordinator, Multiplatform Programming</span></div><span class="exp-dates">2013 – 2017</span></div>
+  </div>
+  <div class="bio-section">
+    <div class="section-heading">Film &amp; Television Credits</div>
+    <div class="credits-grid">
+      <div class="credit-item"><span class="credit-title">Moonrise Kingdom</span><span class="credit-type">Feature Film</span></div>
+      <div class="credit-item"><span class="credit-title">R.I.P.D.</span><span class="credit-type">Feature Film</span></div>
+      <div class="credit-item"><span class="credit-title">The Heat</span><span class="credit-type">Feature Film</span></div>
+      <div class="credit-item"><span class="credit-title">Gilded Lilys</span><span class="credit-type">TV Pilot</span></div>
+      <div class="credit-item"><span class="credit-title">Welcome to New York</span><span class="credit-type">Feature Film</span></div>
+      <div class="credit-item"><span class="credit-title">Bad Advice from My Brother</span><span class="credit-type">TV Pilot</span></div>
+    </div>
+  </div>
+  <div class="bio-section">
+    <div class="section-heading">Education</div>
+    <div class="edu-item"><div><div class="edu-degree">B.A. Modern Culture &amp; Media</div><div class="edu-school">Brown University, Providence, RI</div></div><div class="edu-year">2011</div></div>
+  </div>
+  <div class="bio-section">
+    <div class="section-heading">Get in Touch</div>
+    <div class="contact-info-strip">
+      <div class="contact-info-item"><span class="contact-info-label">Email</span><div class="contact-info-val">coldsman@gmail.com</div></div>
+      <div class="contact-info-item"><span class="contact-info-label">LinkedIn</span><div class="contact-info-val">in/charlotteoldsman</div></div>
+      <div class="contact-info-item"><span class="contact-info-label">Location</span><div class="contact-info-val">Brooklyn, NY</div></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label class="form-label">Name</label><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" placeholder="your@email.com"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label class="form-label">Company</label><input type="text" placeholder="Optional"></div>
+      <div class="form-group"><label class="form-label">Type of Work</label>
+        <select><option value="">Select...</option><option>Full-time</option><option>Fractional</option><option>Contract</option><option>Project-based</option><option>Consulting</option><option>Other</option></select>
+      </div>
+    </div>
+    <div class="form-grid full">
+      <div class="form-group"><label class="form-label">Message</label><textarea placeholder="Tell me about the opportunity..."></textarea></div>
+    </div>
+    <button class="submit-btn">Send Message</button>
+  </div>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+const brands=["Purex","Urban Pie","Snickers","USPS","Dick's Sporting Goods","Party City","Kellogg's","Marvel","HBO Max","Dr Pepper","Dove Chocolate","A&W","P&G","Jose Cuervo","M&Ms","Neutrogena","BET","Lyft","Discover","Mastercard","Walmart","Aveeno","Paramount","Merck","MARS","Mucinex","Discovery Channel","Kraft","Bank of America","Unilever","FAFSA","Lysol","Uber","Nickelodeon","Viacom","CBS","Gardasil","Goliath"];
+(function(){const t=document.getElementById('brand-ticker');t.innerHTML=[...brands,...brands].map(b=>`<span class="ticker-item">${b}</span><span class="ticker-dot">·</span>`).join('');})();
+const BASE='https://static.wixstatic.com/media/',SZ='/v1/fill/w_120,h_120,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/';
+const talent=[{name:"Steve Toussaint",credit:"House of the Dragon",id:"739b20_804d78ea52dc490f9d773a4a204d02cc~mv2.jpeg"},{name:"Milly Alcock",credit:"House of the Dragon",id:"739b20_765c5a313a3b47459d5bbc847b90d141~mv2.jpeg"},{name:"Fabien Frankel",credit:"House of the Dragon",id:"739b20_7a5830135b1f41348e836225b7f01615~mv2.jpeg"},{name:"Pauline Chalamet",credit:"Sex Lives of College Girls",id:"739b20_a141c9a4ec5a428dabd13c73f2fcac9a~mv2.jpeg"},{name:"Amrit Kaur",credit:"Sex Lives of College Girls",id:"739b20_cf453106bf1d4cabaedfa0edd3fbc826~mv2.jpeg"},{name:"Reneé Rapp",credit:"Sex Lives of College Girls",id:"739b20_5c18a39b57d54ac087323bdb52f5204d~mv2.jpeg"},{name:"Alyah Chanelle Scott",credit:"Sex Lives of College Girls",id:"739b20_04ed99431741451d90254dd0d0b75a72~mv2.jpeg"},{name:"Bill Hader",credit:"Barry",id:"739b20_daae569d27864b93965ad1e598f88ae1~mv2.jpeg"},{name:"Lena Waithe",credit:"Writer & Producer",id:"739b20_9279521b3cf64bd696710b32448df1c9~mv2.jpeg"},{name:"Sue Bird",credit:"Athlete",id:"739b20_60fd2fa3dab04f93a94bcbf9aa293613~mv2.jpeg"},{name:"Daniel Dae Kim",credit:"Actor & Producer",id:"739b20_794d62306ddc42159df04e715ec6f6be~mv2.jpeg"}];
+(function(){const t=document.getElementById('talent-track'),d=[...talent,...talent];t.innerHTML=d.map((x,i)=>`<div class="talent-card"><div class="talent-headshot"><img src="${BASE}${x.id}${SZ}${x.id}" alt="${x.name}"></div><div class="talent-info"><span class="talent-name">${x.name}</span><span class="talent-credit">${x.credit}</span></div></div>${i<d.length-1?'<div class="talent-divider"></div>':''}`).join('');})();
+function switchHBO(id,el){document.getElementById('hbo-iframe').src=`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`;document.querySelectorAll('.carousel-thumb').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
+const GIF_CDN='https://static.wixstatic.com/media/',GIF_P='/v1/fill/w_1280,h_720,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/';
+const gifs=[{id:'739b20_c35adb133dac48a9a5acbb8be0aea5a2~mv2.gif',name:'StreamingTech_01_Personalization_full_S.gif',title:'Personalization'},{id:'739b20_2a33ce1dab3d4c298571e2ce847adc7c~mv2.gif',name:'StreamingTech_02_EngagementEngine.gif',title:'Engagement Engine'},{id:'739b20_10eff72f85414cf490e7ef34cb67aa12~mv2.gif',name:'StreamingTech_02_EngagementEngine_KnowTheContent_S.gif',title:'Know the Content'},{id:'739b20_3937f31b404d41888e68cf82b1823cd9~mv2.gif',name:'StreamingTech_02_EngagementEngine_KnowTheUser_S.gif',title:'Know the User'},{id:'739b20_b164652f50194b088e3be49fcd43c2fa~mv2.gif',name:'StreamingTech_04_LiveEvents_S.gif',title:'Live Events'},{id:'739b20_314f07ba4a304a5988d21400f94d5c6b~mv2.gif',name:'StreamingTech_05_Sports_S.gif',title:'Sports'},{id:'739b20_3e9a4e0ab990418c8d7f3c664de6be26~mv2.gif',name:'StreamingTech_06_ChannelGuide_S.gif',title:'Channel Guide'},{id:'739b20_9f9b19be199049d18b5842bb6a9fc886~mv2.gif',name:'StreamingTech_07_NextLevelAds_S.gif',title:'Next-Level Ads'},{id:'739b20_b32cacec5111407fb54d327b5a138c86~mv2.gif',name:'StreamingTech_08_TechStack_S.gif',title:'Tech Stack'},{id:'739b20_84d29147f6354cca876ee76608e0c5d0~mv2.gif',name:'StreamingTech_09_GlobalScale_S.gif',title:'Global Scale'},{id:'739b20_940c26fb20164360b9d7a5a26c540f2e~mv2.gif',name:'StreamingTech_10_InnovativeCulture_S.gif',title:'Innovative Culture'}];
+let gifCurrent=0;
+function gifUrl(g){return GIF_CDN+g.id+GIF_P+g.name;}
+function gifGo(idx){gifCurrent=(idx+gifs.length)%gifs.length;const g=gifs[gifCurrent];document.getElementById('gif-img').src=gifUrl(g);document.getElementById('gif-title').textContent=g.title;document.getElementById('gif-counter').textContent=`${gifCurrent+1} / ${gifs.length}`;document.querySelectorAll('.gif-dot').forEach((d,i)=>d.classList.toggle('active',i===gifCurrent));}
+(function(){document.getElementById('gif-dots').innerHTML=gifs.map((_,i)=>`<button class="gif-dot ${i===0?'active':''}" onclick="gifGo(${i})"></button>`).join('');gifGo(0);})();
+const intVideos=[{id:"371177666",title:"Frosted Flakes — Ben Simmons"},{id:"303186971",title:"Aveeno — Jenny Lopez"},{id:"281311579",title:"A&W Root Beer — Mario Lopez"},{id:"553503747",title:"Bank of America — Arielle Vandenberg"},{id:"281311772",title:"Urban Pie Pizza — Manon Matthews"},{id:"841698304",title:"Discover — Karen Civil"},{id:"841648928",title:"Nickelodeon — Ashlee Simpson Ross & Family"},{id:"328559152",title:"M&Ms Chocolate Bar — Arielle Vandenberg"},{id:"376390532",title:"Goliath — Gator Golf"},{id:"841650241",title:"Invisalign — Avani"},{id:"376390382",title:"Nickelodeon — smART Pixelator"}];
+let intCurrent=0,intPage=0;
+const INT_PER=3;
+function intPages(){return Math.ceil(intVideos.length/INT_PER);}
+function buildIntStrip(){const strip=document.getElementById('int-strip'),start=intPage*INT_PER;strip.innerHTML=intVideos.slice(start,start+INT_PER).map((v,i)=>{const idx=start+i;return `<div class="strip-thumb ${idx===intCurrent?'active':''}" onclick="intGoTo(${idx})"><img src="https://vumbnail.com/${v.id}.jpg" alt="${v.title}"><div class="strip-overlay"><span class="strip-play">&#9654;</span></div><div class="strip-label">${v.title}</div><span class="strip-num">${idx+1}</span></div>`;}).join('');document.getElementById('int-nav').innerHTML=Array.from({length:intPages()},(_,i)=>`<button class="strip-dot ${i===intPage?'active':''}" onclick="intGoPage(${i})"></button>`).join('');}
+function intGoTo(idx){intCurrent=idx;const v=intVideos[idx];document.getElementById('int-iframe').src=`https://player.vimeo.com/video/${v.id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1`;document.getElementById('int-title').textContent=v.title;document.getElementById('int-counter').textContent=`${idx+1} / ${intVideos.length}`;intPage=Math.floor(idx/INT_PER);buildIntStrip();}
+function intGoPage(p){intPage=p;buildIntStrip();}
+function intNext(){intGoTo((intCurrent+1)%intVideos.length);}
+function intPrev(){intGoTo((intCurrent-1+intVideos.length)%intVideos.length);}
+buildIntStrip();
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');document.getElementById('nav-'+id).classList.add('active');if(id==='work')showList();}
+function showDetail(id){document.getElementById('work-list').style.display='none';document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('active'));document.getElementById('detail-'+id).classList.add('active');}
+function showList(){document.getElementById('work-list').style.display='block';document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('active'));}
+document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');});});
+</script>
+</body>
+</html>
