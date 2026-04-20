@@ -69,24 +69,18 @@
   .talent-divider { width: 1px; height: 32px; background: var(--border); flex-shrink: 0; }
 
   /* WORK */
-  .work-header { padding: 3rem 0 2rem; border-bottom: 0.5px solid var(--border); }
+  .work-header { padding: 3rem 0 1.5rem; border-bottom: 0.5px solid var(--border); }
   .work-header h2 { font-family: var(--serif); font-size: 44px; font-weight: 400; color: var(--fg); }
-  .work-filters { display: flex; gap: 1.5rem; margin-top: 1rem; }
-  .filter-btn { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: none; border: none; color: var(--fg2); cursor: pointer; padding: 0; transition: color 0.2s; }
-  .filter-btn:hover, .filter-btn.active { color: var(--fg); }
-  .filter-btn.active { text-decoration: underline; text-underline-offset: 4px; }
-  .project-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .project-item { border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 2rem 2rem 2rem 0; cursor: pointer; transition: opacity 0.2s; }
-  .project-item:nth-child(even) { padding-left: 2rem; padding-right: 0; border-right: none; }
-  .project-item:last-child:nth-child(odd) { border-right: none; }
-  .project-item:hover { opacity: 0.7; }
-  .project-thumb { width: 100%; aspect-ratio: 16/9; background: var(--bg2); border: 0.5px solid var(--border); margin-bottom: 1rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .thumb-tag { position: absolute; top: 0.5rem; left: 0.5rem; font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg2); background: var(--bg); padding: 3px 7px; border: 0.5px solid var(--border); z-index: 1; }
-  .project-num { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: var(--fg2); margin-bottom: 0.35rem; }
-  .project-name { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); margin-bottom: 0.4rem; line-height: 1.2; }
-  .project-desc { font-family: var(--sans); font-size: 12px; color: var(--fg2); line-height: 1.9; font-weight: 300; }
-  .project-meta { margin-top: 0.75rem; font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg2); }
+  .project-list { display: flex; flex-direction: column; }
+  .project-item-h { display: grid; grid-template-columns: 2fr 3fr; gap: 2rem; align-items: center; padding: 1.75rem 0; border-bottom: 0.5px solid var(--border); cursor: pointer; transition: opacity 0.2s; }
+  .project-item-h:first-child { border-top: 0.5px solid var(--border); }
+  .project-item-h:hover { opacity: 0.7; }
+  .project-thumb-h { width: 100%; aspect-ratio: 16/9; background: var(--bg2); border: 0.5px solid var(--border); overflow: hidden; }
+  .project-thumb-h img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .project-category { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.5rem; }
+  .project-name { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--fg); margin-bottom: 0.4rem; line-height: 1.2; }
+  .project-desc { font-family: var(--sans); font-size: 12px; color: var(--fg2); line-height: 1.9; font-weight: 300; margin-bottom: 0.5rem; }
+  .project-meta { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg2); }
 
   /* DETAIL */
   .project-detail { display: none; padding: 2.5rem 0; }
@@ -263,34 +257,34 @@
   <div id="work-list">
     <div class="work-header">
       <h2>Selected Work</h2>
-      <div class="work-filters">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Brand Marketing</button>
-        <button class="filter-btn">Innovation</button>
-        <button class="filter-btn">Integrated Marketing</button>
-      </div>
     </div>
-    <div class="project-grid">
-      <div class="project-item" onclick="showDetail('hbo')">
-        <div class="project-thumb"><img src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="HBO Max"><span class="thumb-tag">Brand Marketing</span></div>
-        <div class="project-num">01</div>
-        <div class="project-name">HBO Max — Recommended By</div>
-        <div class="project-desc">An original short-form series turning talent recommendations into a personalized discovery engine — in-app, on social, and across CRM.</div>
-        <div class="project-meta">HBO Max &mdash; Strategist, Producer, Writer, Director</div>
+    <div class="project-list">
+      <div class="project-item-h" onclick="showDetail('hbo')">
+        <div class="project-thumb-h"><img src="https://static.wixstatic.com/media/739b20_ad8b1557990d4cf0bfdcd6bcb48ba64b~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/max%20intro%20gif.gif" alt="HBO Max"></div>
+        <div class="project-text">
+          <div class="project-category">Brand Marketing</div>
+          <div class="project-name">HBO Max — Recommended By</div>
+          <div class="project-desc">An original short-form series turning talent recommendations into a personalized discovery engine — in-app, on social, and across CRM.</div>
+          <div class="project-meta">HBO Max &mdash; Creative Strategist &amp; Director</div>
+        </div>
       </div>
-      <div class="project-item" onclick="showDetail('paramount')">
-        <div class="project-thumb"><img src="https://static.wixstatic.com/media/739b20_c35adb133dac48a9a5acbb8be0aea5a2~mv2.gif/v1/fill/w_640,h_360,al_c/739b20_c35adb133dac48a9a5acbb8be0aea5a2~mv2.gif" alt="Paramount"><span class="thumb-tag">Innovation</span></div>
-        <div class="project-num">02</div>
-        <div class="project-name">Paramount Streaming Technology Showcase</div>
-        <div class="project-desc">A first-of-its-kind digital hub spotlighting AI-driven innovation across Paramount+ and Pluto TV, built for 100M+ fans worldwide.</div>
-        <div class="project-meta">Paramount &mdash; Creative Producer</div>
+      <div class="project-item-h" onclick="showDetail('paramount')">
+        <div class="project-thumb-h"><img src="https://static.wixstatic.com/media/739b20_9aa403f86428472fa705a3dacbfffa25~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/StreamingTech_00_Mountain.gif" alt="Paramount"></div>
+        <div class="project-text">
+          <div class="project-category">Innovation</div>
+          <div class="project-name">Paramount — Streaming Technology Showcase</div>
+          <div class="project-desc">A first-of-its-kind digital hub spotlighting AI-driven innovation across Paramount+ and Pluto TV.</div>
+          <div class="project-meta">Paramount &mdash; Creative Producer</div>
+        </div>
       </div>
-      <div class="project-item" onclick="showDetail('integrated')">
-        <div class="project-thumb"><img src="https://vumbnail.com/371177666.jpg" alt="Integrated Marketing"><span class="thumb-tag">Integrated Marketing</span></div>
-        <div class="project-num">03</div>
-        <div class="project-name">Integrated Marketing Campaigns</div>
-        <div class="project-desc">360° integrated campaigns for Fortune 500 brands across CPG, beauty, retail, tech, and entertainment — from concept to post-campaign analysis.</div>
-        <div class="project-meta">ViacomCBS &mdash; $25K–$6MM budgets</div>
+      <div class="project-item-h" onclick="showDetail('integrated')">
+        <div class="project-thumb-h"><img src="https://static.wixstatic.com/media/739b20_9fb751590ba44a708e1d38a8aaf1e836~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/Frosted_Flakes_-_Ben_Simmons.gif" alt="Integrated Marketing"></div>
+        <div class="project-text">
+          <div class="project-category">Integrated Marketing</div>
+          <div class="project-name">ViacomCBS — Partnerships &amp; Activations</div>
+          <div class="project-desc">360° activations for Fortune 500 brands across CPG, beauty, retail, tech, and entertainment — from concept through post-campaign analysis.</div>
+          <div class="project-meta">ViacomCBS &mdash; Activation Lead</div>
+        </div>
       </div>
     </div>
   </div>
@@ -505,7 +499,7 @@ buildIntStrip();
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');document.getElementById('nav-'+id).classList.add('active');if(id==='work')showList();}
 function showDetail(id){document.getElementById('work-list').style.display='none';document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('active'));document.getElementById('detail-'+id).classList.add('active');}
 function showList(){document.getElementById('work-list').style.display='block';document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('active'));}
-document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');});});
+
 </script>
 </body>
 </html>
