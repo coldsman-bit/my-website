@@ -77,6 +77,8 @@
     .section-feature   { padding-block: var(--space-5xl); }
     .section-compressed{ padding-block: var(--space-xl); }
     .col-1-10, .col-1-8, .col-1-7 { grid-column: 1 / -1; }
+    .about-hero-row { flex-direction: column !important; align-items: flex-start !important; }
+    .about-photo { width: 100% !important; aspect-ratio: 4/5; }
   }
 
   /* NAV */
@@ -544,17 +546,18 @@
 
 <!-- ABOUT -->
 <div class="page" id="page-bio">
+<div style="max-width: 83%; padding-top: var(--space-4xl);">
 
   <!-- HERO -->
-  <div style="padding-top: var(--space-4xl); margin-bottom: var(--space-7xl);">
+  <div style="margin-bottom: var(--space-7xl);">
     <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: 40px;">About</div>
     <div style="display: flex; align-items: center; gap: 56px; margin-bottom: var(--space-3xl);">
-      <div style="width: 280px; aspect-ratio: 4/5; flex-shrink: 0; overflow: hidden; border-radius: 0;">
+      <div style="width: 280px; aspect-ratio: 4/5; flex-shrink: 0; overflow: hidden;">
         <img loading="lazy" src="https://static.wixstatic.com/media/739b20_a62de7b35f8f4baea8afc0893ac05432~mv2.jpg/v1/fill/w_560,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photo-output%205_edited.jpg" alt="Charlotte Oldsman" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
       </div>
       <div>
-        <h1 style="font-family: var(--serif); font-size: clamp(48px, 6vw, 80px); font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 22px;">Charlotte<br><em>Oldsman</em></h1>
-        <div style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 14px; color: var(--fg2); font-weight: 400;">
+        <h1 style="font-family: var(--serif); font-size: clamp(40px, 5.5vw, 72px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 16px; white-space: nowrap;">Charlotte <em>Oldsman</em></h1>
+        <div style="display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 14px; color: var(--fg2); font-weight: 400;">
           <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span>
           Brooklyn, NY — Available for select engagements
         </div>
@@ -571,23 +574,23 @@
   <div style="margin-bottom: var(--space-6xl);">
     <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: 48px;">Experience</div>
     <div style="display: flex; flex-direction: column;">
-      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: var(--space-xl) 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
+      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: 16px 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
         <span style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">2023 — 2026</span>
         <div><div style="font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 6px;">Paramount</div><div style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">Director, Innovation</div></div>
       </div>
-      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: var(--space-xl) 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
+      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: 16px 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
         <span style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">2022 — 2023</span>
         <div><div style="font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 6px;">HBO Max</div><div style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">Senior Creative, Brand Marketing</div></div>
       </div>
-      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: var(--space-xl) 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
+      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: 16px 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
         <span style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">2018 — 2022</span>
         <div><div style="font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 6px;">ViacomCBS</div><div style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">Director, Integrated Marketing</div></div>
       </div>
-      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: var(--space-xl) 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
+      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: 16px 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
         <span style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">2017 — 2018</span>
         <div><div style="font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 6px;">WHOSAY</div><div style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">Manager, Influencer Marketing</div></div>
       </div>
-      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: var(--space-xl) 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
+      <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); padding: 16px 0; border-bottom: 0.5px solid var(--divider); align-items: start;">
         <span style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">2013 — 2017</span>
         <div><div style="font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--fg); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 6px;">Nickelodeon</div><div style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">Coordinator, Multiplatform Programming</div></div>
       </div>
@@ -597,7 +600,7 @@
   <!-- EDUCATION -->
   <div style="margin-bottom: var(--space-7xl);">
     <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: 32px;">Education</div>
-    <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); align-items: baseline; padding-bottom: var(--space-xl); border-bottom: 0.5px solid var(--divider);">
+    <div style="display: grid; grid-template-columns: 2fr 8fr; gap: var(--space-3xl); align-items: baseline; padding-bottom: 16px; border-bottom: 0.5px solid var(--divider);">
       <span style="font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg2);">2011</span>
       <div>
         <div style="font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: 6px;">B.A. Modern Culture &amp; Media</div>
@@ -609,16 +612,18 @@
   <!-- FILM & TELEVISION CREDITS -->
   <div style="margin-bottom: var(--space-6xl);">
     <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: 48px;">Selected Film &amp; Television Credits</div>
+    <p style="font-family: var(--serif); font-size: 20px; font-weight: 400; font-style: italic; color: var(--fg2); max-width: 580px; line-height: 1.4; font-variation-settings: 'opsz' 144, 'SOFT' 50; margin-bottom: 64px;">Before marketing, I worked in feature film and television production.</p>
     <div style="display: flex; flex-direction: column;">
-      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Bad Advice from My Brother</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">TV Pilot</span></div>
-      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Welcome to New York</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
-      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">The Heat</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
-      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Gilded Lilys</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">TV Pilot</span></div>
-      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">R.I.P.D.</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
       <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Moonrise Kingdom</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
+      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">R.I.P.D.</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
+      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">The Heat</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
+      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Welcome to New York</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">Feature Film</span></div>
+      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Bad Advice from My Brother</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">TV Pilot</span></div>
+      <div style="display: grid; grid-template-columns: 8fr 2fr; gap: var(--space-3xl); padding: var(--space-lg) 0; border-bottom: 0.5px solid var(--divider); align-items: center;"><span style="font-family: var(--serif); font-size: 24px; font-weight: 400; font-style: italic; color: var(--fg); letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 50;">Gilded Lilys</span><span style="font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg2); text-align: right;">TV Pilot</span></div>
     </div>
   </div>
 
+</div>
 </div>
 
 <!-- CONTACT -->
