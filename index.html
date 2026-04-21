@@ -121,27 +121,28 @@
   /* HERO */
   .hero { padding: var(--space-4xl) 0 0; border-bottom: 0.5px solid var(--divider); }
   .hero-eyebrow { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); margin-bottom: var(--space-lg); font-weight: 500; }
-  .hero-title { font-family: var(--serif); font-size: clamp(56px, 8vw, 140px); font-weight: 400; line-height: 0.98; letter-spacing: -0.025em; margin-bottom: var(--space-2xl); color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; max-width: 75%; }
+  .hero-title { font-family: var(--serif); font-size: clamp(56px, 9vw, 128px); font-weight: 400; line-height: 0.98; letter-spacing: -0.025em; margin-bottom: var(--space-2xl); color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; max-width: 75%; }
   .hero-title em { font-style: italic; font-variation-settings: 'opsz' 144, 'SOFT' 50; }
   .hero-sub { font-family: var(--sans); font-size: 18px; color: var(--fg2); max-width: 560px; line-height: 1.55; font-weight: 400; letter-spacing: -0.005em; }
-  .hero-cta { margin-top: var(--space-3xl); margin-bottom: var(--space-5xl); display: flex; gap: var(--space-lg); align-items: center; }
+  .hero-cta { margin-top: var(--space-3xl); margin-bottom: var(--space-5xl); display: flex; gap: var(--space-xl); align-items: center; }
   .btn-primary {
     font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
-    padding: var(--button-padding); border-radius: var(--button-radius);
-    border: none; background: var(--fg); color: var(--bg);
-    cursor: pointer; transition: background var(--transition-fast);
+    padding: 16px 28px; border-radius: 0;
+    border: none; background: #141414; color: #F6F3EE;
+    cursor: pointer; transition: background 150ms ease-out;
     text-decoration: none; display: inline-block; line-height: 1.2;
   }
-  .btn-primary:hover { background: var(--accent); }
-  .btn-primary:focus { outline: none; box-shadow: var(--shadow-focus-ring); }
+  .btn-primary:hover { background: #C55A3C; }
+  .btn-primary:focus { outline: 2px solid #C55A3C; outline-offset: 3px; }
   .btn-primary:active { background: #0A0A0A; }
   .btn-ghost {
     font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--fg2); cursor: pointer; background: none; border: none;
-    transition: color var(--transition-standard); line-height: 1.2;
-    text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px;
+    color: #141414; cursor: pointer; background: none; border: none;
+    transition: color 150ms ease-out, text-decoration-color 150ms ease-out; line-height: 1.2;
+    text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1.5px;
+    text-decoration-color: #141414;
   }
-  .btn-ghost:hover { color: var(--accent); text-decoration-thickness: 1.5px; }
+  .btn-ghost:hover { color: #C55A3C; text-decoration-color: #C55A3C; }
 
   /* TICKERS */
   .ticker-wrap { border-top: 0.5px solid var(--divider); border-bottom: 0.5px solid var(--divider); overflow: hidden; padding: 0.85rem 0; position: relative; }
@@ -367,9 +368,8 @@
 <body>
 
 <nav>
-  <div class="nav-logo">Charlotte Oldsman</div>
+  <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">Charlotte Oldsman</div>
   <div class="nav-links">
-    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
     <a onclick="showPage('work')" id="nav-work">Work</a>
     <a onclick="showPage('bio')" id="nav-bio">About</a>
     <a onclick="showPage('contact')" id="nav-contact">Contact</a>
@@ -380,11 +380,11 @@
 <div class="page active" id="page-home">
   <div class="hero">
     <div class="hero-eyebrow">Creative Strategist &amp; Producer &mdash; Brooklyn, NY</div>
-    <h1 class="hero-title">Creative vision<br>meets <em>flawless</em><br><em>execution.</em></h1>
-    <p class="hero-sub">14+ years turning ideas into impact across media &amp; entertainment. From brand campaigns to streaming innovation — connecting stories, audiences, and culture at scale.</p>
+    <h1 class="hero-title">Creative vision<br>meets <em>flawless</em><br>execution.</h1>
+    <p class="hero-sub">14+ years turning ideas into impact across media &amp; entertainment, connecting stories, audiences, and culture at scale.</p>
     <div class="hero-cta">
       <button class="btn-primary" onclick="showPage('work')">View Work</button>
-      <button class="btn-ghost" onclick="showPage('bio')">About Charlotte &rarr;</button>
+      <button class="btn-ghost" onclick="showPage('bio')">About Charlotte →</button>
     </div>
   </div>
 </div>
@@ -770,7 +770,7 @@ function intGoPage(p){intPage=p;buildIntStrip();}
 function intNext(){intGoTo((intCurrent+1)%intVideos.length);}
 function intPrev(){intGoTo((intCurrent-1+intVideos.length)%intVideos.length);}
 buildIntStrip();
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');document.getElementById('nav-'+id).classList.add('active');if(id==='work')showList();window.scrollTo(0,0);}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const navEl=document.getElementById('nav-'+id);if(navEl)navEl.classList.add('active');if(id==='work')showList();window.scrollTo(0,0);}
 function showDetail(id){document.getElementById('work-list').style.display='none';document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('active'));document.getElementById('detail-'+id).classList.add('active');window.scrollTo(0,0);}
 function showList(){document.getElementById('work-list').style.display='block';document.querySelectorAll('.project-detail').forEach(d=>d.classList.remove('active'));window.scrollTo(0,0);}
 
