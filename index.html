@@ -236,6 +236,7 @@
     <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
     <a onclick="showPage('work')" id="nav-work">Work</a>
     <a onclick="showPage('bio')" id="nav-bio">About</a>
+    <a onclick="showPage('contact')" id="nav-contact">Contact</a>
   </div>
 </nav>
 
@@ -293,35 +294,32 @@
   <div class="project-detail" id="detail-hbo">
     <button class="back-btn" onclick="showList()">&larr; All Work</button>
     <div class="detail-eyebrow">Brand Marketing &mdash; HBO Max</div>
-    <h2 class="detail-title">Recommended<br><em>By</em></h2>
-    <div class="detail-banner"><img src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="Recommended By banner"></div>
-    <div class="main-video-wrap"><iframe id="hbo-iframe" src="https://player.vimeo.com/video/760755091?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <h2 class="detail-title"><em>Recommended By</em></h2>
+    <div style="width:100%;margin-bottom:2rem;border:0.5px solid var(--border);overflow:hidden;"><img src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="Recommended By banner" style="width:100%;height:auto;display:block;"></div>
+    <div class="main-video-wrap"><iframe id="hbo-iframe" src="https://player.vimeo.com/video/761512074?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
     <div class="carousel-label" style="margin-top:0.75rem;">Featured Videos</div>
     <div class="carousel">
-      <div class="carousel-thumb active" onclick="switchHBO('760755091',this)"><img src="https://vumbnail.com/760755091.jpg" alt="Steve Touissant"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Steve Touissant</div></div>
-      <div class="carousel-thumb" onclick="switchHBO('761512074',this)"><img src="https://vumbnail.com/761512074.jpg" alt="Milly Alcock"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Milly Alcock</div></div>
+      <div class="carousel-thumb active" onclick="switchHBO('761512074',this)"><img src="https://vumbnail.com/761512074.jpg" alt="Milly Alcock"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Milly Alcock</div></div>
+      <div class="carousel-thumb" onclick="switchHBO('760755091',this)"><img src="https://vumbnail.com/760755091.jpg" alt="Steve Touissant"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Steve Touissant</div></div>
       <div class="carousel-thumb" onclick="switchHBO('760755180',this)"><img src="https://vumbnail.com/760755180.jpg" alt="Fabien Frankel"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Fabien Frankel</div></div>
     </div>
     <div class="detail-grid">
       <div>
         <div class="detail-meta-block"><div class="detail-meta-label">Role</div><div class="detail-meta-val">Creative Strategist<br>Producer<br>Writer<br>Director</div></div>
         <div class="detail-meta-block"><div class="detail-meta-label">Client</div><div class="detail-meta-val">HBO Max</div></div>
-        <div class="detail-meta-block"><div class="detail-meta-label">Channels</div><div class="detail-meta-val">In-app<br>Dotcom<br>Social<br>CRM</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Channels</div><div class="detail-meta-val">In-app<br>Dotcom<br>Social<br>Email</div></div>
       </div>
       <div class="detail-body">
         <h3>Overview</h3>
         <p>Led the creative development and production of Recommended By — a brand marketing campaign and original short-form video series spotlighting talent sharing their favorite HBO Max titles.</p>
         <h3>Scope &amp; Impact</h3>
-        <p>This first-of-its-kind campaign was designed to drive personalization, engagement, and retention by transforming viewer recommendations into a dynamic discovery experience. The videos lived both in-app and across owned channels — dotcom, social, and CRM — serving as on-ramps to new programming and catalysts for rediscovering fan-favorite classics.</p>
+        <p>This campaign was a new-to-market feature and personalization and retention strategy with the goal of reducing churn and maximizing minutes watched on the platform. These recommendations lived in-app and off-platform (dotcom, social, and email), providing on-ramps to new programming and facilitating rediscovery of the classics.</p>
       </div>
     </div>
-    <div class="gif-wrap"><img src="https://static.wixstatic.com/media/739b20_a62c43e7c59e46758dbb1d56d28cb0b3~mv2.gif" alt="Recommended By GIF"></div>
-    <div class="quote-block">
-      <a class="yt-thumb" href="https://www.youtube.com/watch?v=3hmIwuwZsXQ" target="_blank" rel="noopener">
-        <img src="https://static.wixstatic.com/media/739b20_17b2d2fc086e49c9a6a3cfe1ae1b318a~mv2.jpg" alt="Watch on YouTube">
-        <div class="yt-play"><div class="yt-play-btn"><span>&#9654;</span></div></div>
-        <div class="yt-label">Watch on YouTube</div>
-      </a>
+    <div class="quote-block" style="margin-top:2rem;border-top:0.5px solid var(--border);padding-top:2rem;">
+      <div style="border:0.5px solid var(--border);overflow:hidden;">
+        <img src="https://static.wixstatic.com/media/739b20_17b2d2fc086e49c9a6a3cfe1ae1b318a~mv2.jpg" alt="Recommended By campaign" style="width:100%;display:block;">
+      </div>
       <div class="quotes">
         <div class="quote-item"><div class="quote-text">"I would patiently watch all these shows with Milly Alcock."</div><div class="quote-attr">@Sagitarius2redx &mdash; 1.1K likes</div></div>
         <div class="quote-item"><div class="quote-text">"OMG her recommendations — I love her even more now."</div><div class="quote-attr">@mcfroggyswaggy2062</div></div>
@@ -416,7 +414,6 @@
       <div class="bio-job-title">Marketing Director &amp; Creative Producer</div>
       <p class="bio-text">High-performing creative strategist and production leader with 14+ years in media &amp; entertainment. Expertise in brand marketing strategy, integrated campaign development, and large-scale production operations — passionate about leveraging innovative tools and storytelling to educate, entertain, and connect audiences.</p>
       <p class="bio-text">Based in Brooklyn, NY.</p>
-      <div class="bio-availability"><span class="avail-dot"></span>Open to full-time, fractional &amp; contract work</div>
     </div>
   </div>
   <div class="bio-section">
@@ -448,28 +445,41 @@
     <div class="section-heading">Education</div>
     <div class="edu-item"><div><div class="edu-degree">B.A. Modern Culture &amp; Media</div><div class="edu-school">Brown University, Providence, RI</div></div><div class="edu-year">2011</div></div>
   </div>
-  <div class="bio-section">
-    <div class="section-heading">Get in Touch</div>
-    <div class="contact-info-strip">
-      <div class="contact-info-item"><span class="contact-info-label">Email</span><div class="contact-info-val">coldsman@gmail.com</div></div>
-      <div class="contact-info-item"><span class="contact-info-label">LinkedIn</span><div class="contact-info-val">in/charlotteoldsman</div></div>
-      <div class="contact-info-item"><span class="contact-info-label">Location</span><div class="contact-info-val">Brooklyn, NY</div></div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div style="padding: 4rem 0 2.5rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;">
+    <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg2); margin-bottom: 1rem;">Available for Engagement</div>
+    <h1 style="font-family: var(--serif); font-size: 52px; font-weight: 400; font-style: italic; line-height: 1.05; color: var(--fg); margin-bottom: 1.5rem;">Senior creative<br>leadership, on demand.</h1>
+    <p style="font-family: var(--sans); font-size: 15px; color: var(--fg2); line-height: 1.9; font-weight: 300; max-width: 480px; margin-bottom: 2rem;">Ready to lead projects, teams, and strategies on a fractional or contract basis.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 440px;">
+      <div style="font-family: var(--sans); font-size: 12px; color: var(--fg2); font-weight: 300; padding: 0.5rem 0; border-top: 0.5px solid var(--border);">Brand strategy &amp; campaign development</div>
+      <div style="font-family: var(--sans); font-size: 12px; color: var(--fg2); font-weight: 300; padding: 0.5rem 0; border-top: 0.5px solid var(--border);">Content production &amp; creative direction</div>
+      <div style="font-family: var(--sans); font-size: 12px; color: var(--fg2); font-weight: 300; padding: 0.5rem 0; border-top: 0.5px solid var(--border);">Integrated marketing &amp; influencer partnerships</div>
+      <div style="font-family: var(--sans); font-size: 12px; color: var(--fg2); font-weight: 300; padding: 0.5rem 0; border-top: 0.5px solid var(--border);">Innovation storytelling &amp; internal communications</div>
     </div>
-    <div class="form-grid">
-      <div class="form-group"><label class="form-label">Name</label><input type="text" placeholder="Your name"></div>
-      <div class="form-group"><label class="form-label">Email</label><input type="email" placeholder="your@email.com"></div>
-    </div>
-    <div class="form-grid">
-      <div class="form-group"><label class="form-label">Company</label><input type="text" placeholder="Optional"></div>
-      <div class="form-group"><label class="form-label">Type of Work</label>
-        <select><option value="">Select...</option><option>Full-time</option><option>Fractional</option><option>Contract</option><option>Project-based</option><option>Consulting</option><option>Other</option></select>
-      </div>
-    </div>
-    <div class="form-grid full">
-      <div class="form-group"><label class="form-label">Message</label><textarea placeholder="Tell me about the opportunity..."></textarea></div>
-    </div>
-    <button class="submit-btn">Send Message</button>
+    <div style="display: inline-block; font-family: var(--sans); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border: 0.5px solid var(--border); padding: 0.5rem 0.9rem; color: var(--fg2); margin-top: 2rem;"><span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #5cb85c; margin-right: 0.5rem; vertical-align: middle;"></span>Open to full-time, fractional &amp; contract work</div>
   </div>
+  <div class="contact-info-strip">
+    <div class="contact-info-item"><span class="contact-info-label">Email</span><div class="contact-info-val">coldsman@gmail.com</div></div>
+    <div class="contact-info-item"><span class="contact-info-label">LinkedIn</span><div class="contact-info-val">in/charlotteoldsman</div></div>
+    <div class="contact-info-item"><span class="contact-info-label">Location</span><div class="contact-info-val">Brooklyn, NY</div></div>
+  </div>
+  <div class="form-grid" style="margin-top: 2rem;">
+    <div class="form-group"><label class="form-label">Name</label><input type="text" placeholder="Your name"></div>
+    <div class="form-group"><label class="form-label">Email</label><input type="email" placeholder="your@email.com"></div>
+  </div>
+  <div class="form-grid">
+    <div class="form-group"><label class="form-label">Company</label><input type="text" placeholder="Optional"></div>
+    <div class="form-group"><label class="form-label">Type of Work</label>
+      <select><option value="">Select...</option><option>Full-time</option><option>Fractional</option><option>Contract</option><option>Project-based</option><option>Consulting</option><option>Other</option></select>
+    </div>
+  </div>
+  <div class="form-grid full">
+    <div class="form-group"><label class="form-label">Message</label><textarea placeholder="Tell me about the opportunity..."></textarea></div>
+  </div>
+  <button class="submit-btn" style="margin-bottom: 3rem;">Send Message</button>
 </div>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -479,7 +489,7 @@ const brands=["Purex","Urban Pie","Snickers","USPS","Dick's Sporting Goods","Par
 const BASE='https://static.wixstatic.com/media/',SZ='/v1/fill/w_120,h_120,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/';
 const talent=[{name:"Steve Toussaint",credit:"House of the Dragon",id:"739b20_804d78ea52dc490f9d773a4a204d02cc~mv2.jpeg"},{name:"Milly Alcock",credit:"House of the Dragon",id:"739b20_765c5a313a3b47459d5bbc847b90d141~mv2.jpeg"},{name:"Fabien Frankel",credit:"House of the Dragon",id:"739b20_7a5830135b1f41348e836225b7f01615~mv2.jpeg"},{name:"Pauline Chalamet",credit:"Sex Lives of College Girls",id:"739b20_a141c9a4ec5a428dabd13c73f2fcac9a~mv2.jpeg"},{name:"Amrit Kaur",credit:"Sex Lives of College Girls",id:"739b20_cf453106bf1d4cabaedfa0edd3fbc826~mv2.jpeg"},{name:"Reneé Rapp",credit:"Sex Lives of College Girls",id:"739b20_5c18a39b57d54ac087323bdb52f5204d~mv2.jpeg"},{name:"Alyah Chanelle Scott",credit:"Sex Lives of College Girls",id:"739b20_04ed99431741451d90254dd0d0b75a72~mv2.jpeg"},{name:"Bill Hader",credit:"Barry",id:"739b20_daae569d27864b93965ad1e598f88ae1~mv2.jpeg"},{name:"Lena Waithe",credit:"Writer & Producer",id:"739b20_9279521b3cf64bd696710b32448df1c9~mv2.jpeg"},{name:"Sue Bird",credit:"Athlete",id:"739b20_60fd2fa3dab04f93a94bcbf9aa293613~mv2.jpeg"},{name:"Daniel Dae Kim",credit:"Actor & Producer",id:"739b20_794d62306ddc42159df04e715ec6f6be~mv2.jpeg"}];
 (function(){const t=document.getElementById('talent-track'),d=[...talent,...talent];t.innerHTML=d.map((x,i)=>`<div class="talent-card"><div class="talent-headshot"><img src="${BASE}${x.id}${SZ}${x.id}" alt="${x.name}"></div><div class="talent-info"><span class="talent-name">${x.name}</span><span class="talent-credit">${x.credit}</span></div></div>${i<d.length-1?'<div class="talent-divider"></div>':''}`).join('');})();
-function switchHBO(id,el){document.getElementById('hbo-iframe').src=`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`;document.querySelectorAll('.carousel-thumb').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
+function switchHBO(id,el){document.getElementById('hbo-iframe').src=`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`;document.querySelectorAll('#detail-hbo .carousel-thumb').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
 const GIF_CDN='https://static.wixstatic.com/media/',GIF_P='/v1/fill/w_1280,h_720,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/';
 const gifs=[{id:'739b20_c35adb133dac48a9a5acbb8be0aea5a2~mv2.gif',name:'StreamingTech_01_Personalization_full_S.gif',title:'Personalization'},{id:'739b20_2a33ce1dab3d4c298571e2ce847adc7c~mv2.gif',name:'StreamingTech_02_EngagementEngine.gif',title:'Engagement Engine'},{id:'739b20_10eff72f85414cf490e7ef34cb67aa12~mv2.gif',name:'StreamingTech_02_EngagementEngine_KnowTheContent_S.gif',title:'Know the Content'},{id:'739b20_3937f31b404d41888e68cf82b1823cd9~mv2.gif',name:'StreamingTech_02_EngagementEngine_KnowTheUser_S.gif',title:'Know the User'},{id:'739b20_b164652f50194b088e3be49fcd43c2fa~mv2.gif',name:'StreamingTech_04_LiveEvents_S.gif',title:'Live Events'},{id:'739b20_314f07ba4a304a5988d21400f94d5c6b~mv2.gif',name:'StreamingTech_05_Sports_S.gif',title:'Sports'},{id:'739b20_3e9a4e0ab990418c8d7f3c664de6be26~mv2.gif',name:'StreamingTech_06_ChannelGuide_S.gif',title:'Channel Guide'},{id:'739b20_9f9b19be199049d18b5842bb6a9fc886~mv2.gif',name:'StreamingTech_07_NextLevelAds_S.gif',title:'Next-Level Ads'},{id:'739b20_b32cacec5111407fb54d327b5a138c86~mv2.gif',name:'StreamingTech_08_TechStack_S.gif',title:'Tech Stack'},{id:'739b20_84d29147f6354cca876ee76608e0c5d0~mv2.gif',name:'StreamingTech_09_GlobalScale_S.gif',title:'Global Scale'},{id:'739b20_940c26fb20164360b9d7a5a26c540f2e~mv2.gif',name:'StreamingTech_10_InnovativeCulture_S.gif',title:'Innovative Culture'}];
 let gifCurrent=0;
