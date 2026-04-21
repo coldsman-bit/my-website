@@ -184,7 +184,8 @@
   .project-item-h:hover .project-thumb-h { box-shadow: var(--shadow-card-hover); }
   .project-item-h:hover .project-thumb-h img { transform: scale(1.015); }
   .project-item-h:hover .project-thumb-h::after { background: rgba(20,20,20,0.15); }
-  .project-item-h:hover .project-name { color: var(--accent); }
+  .project-cta { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; margin-top: 16px; display: inline-block; transition: color var(--transition-standard); }
+  .project-item-h:hover .project-cta { color: #A4472D; }
   .project-category { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); margin-bottom: var(--space-sm); font-weight: 500; }
   .project-name { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 400; color: var(--fg); margin-bottom: var(--space-md); line-height: 1.1; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 40; }
   .project-desc { font-family: var(--sans); font-size: 15px; color: var(--fg2); line-height: 1.55; font-weight: 400; margin-bottom: var(--space-sm); letter-spacing: -0.005em; }
@@ -393,41 +394,52 @@
 
 <!-- WORK -->
 <div class="page" id="page-work">
-  <div id="work-list">
-    <div class="work-header">
-      <h2>Selected Work</h2>
-    </div>
+  <div id="work-list" style="max-width: 83%; padding-top: var(--space-4xl);">
+
+    <!-- Eyebrow only, no H2 -->
+    <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: var(--space-3xl);">Featured Work</div>
+
     <div class="project-list">
-      <div class="project-item-h" onclick="showDetail('hbo')">
-        <div>
-          <div class="project-thumb-h"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_ad8b1557990d4cf0bfdcd6bcb48ba64b~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/max%20intro%20gif.gif" alt="HBO Max"></div>
+
+      <!-- CARD 1: HBO Max — image left, text right -->
+      <div class="project-item-h" onclick="showDetail('hbo')" style="display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; padding: var(--space-4xl) 0; border-bottom: 0.5px solid var(--divider); cursor: pointer;">
+        <div class="project-thumb-h" style="aspect-ratio: 16/9;">
+          <img loading="lazy" src="https://static.wixstatic.com/media/739b20_ad8b1557990d4cf0bfdcd6bcb48ba64b~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/max%20intro%20gif.gif" alt="HBO Max">
         </div>
         <div class="project-text">
           <div class="project-category">Brand Marketing</div>
           <div class="project-name">HBO Max — Recommended By</div>
-          <div class="project-desc">An original short-form series turning talent recommendations into a personalized discovery engine — in-app, on social, and across CRM.</div>
+          <div class="project-desc">A short-form series turning talent recommendations into personalized discovery.</div>
+          <div class="project-cta">View case study →</div>
         </div>
       </div>
-      <div class="project-item-h" onclick="showDetail('paramount')">
-        <div>
-          <div class="project-thumb-h"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_9aa403f86428472fa705a3dacbfffa25~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/StreamingTech_00_Mountain.gif" alt="Paramount"></div>
-        </div>
+
+      <!-- CARD 2: Paramount — text left, image right -->
+      <div class="project-item-h" onclick="showDetail('paramount')" style="display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; padding: var(--space-4xl) 0; border-bottom: 0.5px solid var(--divider); cursor: pointer;">
         <div class="project-text">
           <div class="project-category">Innovation</div>
           <div class="project-name">Paramount — Streaming Technology Showcase</div>
-          <div class="project-desc">A first-of-its-kind digital hub spotlighting AI-driven innovation across Paramount+ and Pluto TV.</div>
+          <div class="project-desc">A digital hub spotlighting AI-driven innovation at Paramount+ and Pluto TV.</div>
+          <div class="project-cta">View case study →</div>
+        </div>
+        <div class="project-thumb-h" style="aspect-ratio: 16/9;">
+          <img loading="lazy" src="https://static.wixstatic.com/media/739b20_9aa403f86428472fa705a3dacbfffa25~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/StreamingTech_00_Mountain.gif" alt="Paramount">
         </div>
       </div>
-      <div class="project-item-h" onclick="showDetail('integrated')">
-        <div>
-          <div class="project-thumb-h"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_9fb751590ba44a708e1d38a8aaf1e836~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/Frosted_Flakes_-_Ben_Simmons.gif" alt="Integrated Marketing" style="object-position: center 10%;"></div>
+
+      <!-- CARD 3: ViacomCBS — image left, text right -->
+      <div class="project-item-h" onclick="showDetail('integrated')" style="display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; padding: var(--space-4xl) 0; border-bottom: 0.5px solid var(--divider); cursor: pointer;">
+        <div class="project-thumb-h" style="aspect-ratio: 16/9;">
+          <img loading="lazy" src="https://static.wixstatic.com/media/739b20_9fb751590ba44a708e1d38a8aaf1e836~mv2.gif/v1/fill/w_960,h_540,al_c,q_85/Frosted_Flakes_-_Ben_Simmons.gif" alt="ViacomCBS" style="object-position: center 10%;">
         </div>
         <div class="project-text">
           <div class="project-category">Integrated Marketing</div>
           <div class="project-name">ViacomCBS — Partnerships &amp; Activations</div>
-          <div class="project-desc">360° activations for Fortune 500 brands across CPG, beauty, retail, tech, and entertainment — from concept through post-campaign analysis.</div>
+          <div class="project-desc">360° campaigns for Fortune 500 brands across CPG, beauty, retail, tech, and more.</div>
+          <div class="project-cta">View case study →</div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -689,12 +701,10 @@
       <button type="submit" id="cf-submit" style="
         margin-top: 64px;
         font-family: var(--sans); font-size: 14px; font-weight: 500;
-        background: var(--fg); color: var(--bg);
         border: none; border-radius: 0;
         padding: 16px 28px;
         cursor: pointer;
         display: inline-flex; align-items: center; gap: 0;
-        transition: background 150ms ease-out;
         outline-offset: 3px;
       ">
         Send Message <span id="cf-arrow" style="margin-left:10px; display:inline-block; transition: transform 150ms ease-out;">→</span>
@@ -733,6 +743,7 @@
   .cf-field:focus-within .cf-label { color: var(--accent); }
   .cf-input:focus { border-bottom: 1.5px solid var(--accent); }
   .cf-input.cf-error { border-bottom: 1.5px solid #A83A2F; }
+  #cf-submit { background: var(--fg); color: var(--bg); transition: background 150ms ease-out; }
   #cf-submit:hover { background: var(--accent); }
   #cf-submit:hover #cf-arrow { transform: translateX(4px); }
   #cf-submit:focus { outline: 2px solid var(--accent); }
