@@ -269,9 +269,9 @@
   .detail-meta-block { border-top: 0.5px solid var(--divider); padding-top: var(--space-lg); margin-bottom: var(--space-lg); }
   .detail-meta-label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); margin-bottom: var(--space-sm); font-weight: 500; }
   .detail-meta-val { font-family: var(--sans); font-size: 15px; color: var(--fg); line-height: 1.55; letter-spacing: -0.005em; }
-  .detail-body h3 { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.75rem; margin-top: 2rem; border-top: 0.5px solid var(--divider); padding-top: 1.25rem; font-weight: 500; }
-  .detail-body h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
-  .detail-body p { font-family: var(--sans); font-size: 18px; color: var(--fg2); line-height: 1.55; letter-spacing: -0.005em; font-weight: 400; }
+  .detail-body h3 { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); margin-bottom: var(--space-sm); margin-top: var(--space-lg); border-top: 0.5px solid var(--divider); padding-top: var(--space-lg); font-weight: 500; }
+  .detail-body h3:first-child { margin-top: 0; border-top: 0.5px solid var(--divider); padding-top: var(--space-lg); }
+  .detail-body p { font-family: var(--sans); font-size: 18px; color: #3A3A3A; line-height: 1.55; letter-spacing: -0.005em; font-weight: 400; margin-bottom: var(--space-md); }
   .detail-body a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; transition: color var(--transition-standard); }
   .detail-body a:hover { color: #A4472D; text-decoration: none; }
   .gif-wrap { display: flex; justify-content: center; margin-top: 2rem; border-top: 0.5px solid var(--divider); padding-top: 2rem; }
@@ -284,10 +284,6 @@
   .yt-play-btn { width: 48px; height: 48px; background: rgba(0,0,0,0.65); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
   .yt-play-btn span { font-size: 16px; color: #fff; margin-left: 3px; }
   .yt-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.4rem 0.6rem; background: rgba(0,0,0,0.5); font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; }
-  .quotes { display: flex; flex-direction: column; gap: var(--space-lg); }
-  .quote-item { border-left: 0.5px solid var(--divider); padding-left: var(--space-md); }
-  .quote-text { font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic; color: var(--fg); line-height: 1.25; margin-bottom: 0.4rem; font-variation-settings: 'opsz' 144, 'SOFT' 50; }
-  .quote-attr { font-family: var(--sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg2); font-weight: 500; }
   .section-divider { border-top: 0.5px solid var(--divider); margin-top: var(--space-4xl); padding-top: var(--space-3xl); }
   .section-label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); margin-bottom: 0.5rem; font-weight: 500; }
   .section-desc { font-family: var(--sans); font-size: 18px; color: var(--fg2); line-height: 1.55; margin-bottom: var(--space-2xl); max-width: 560px; letter-spacing: -0.005em; }
@@ -373,6 +369,61 @@
   .submit-btn:hover { background: var(--accent); }
   .submit-btn:focus { outline: none; box-shadow: var(--shadow-focus-ring); }
   .submit-btn:active { background: #0A0A0A; }
+
+  /* Comment cards (YouTube-style) */
+  .comment-stack { display: flex; flex-direction: column; gap: var(--space-lg); max-width: 720px; }
+  .comment-card { display: flex; flex-direction: column; gap: 6px; opacity: 0; transform: translateY(16px); transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .comment-card.visible { opacity: 1; transform: translateY(0); }
+
+  /* Reduced stagger for side-by-side layout */
+  .comment-card:nth-child(1).visible { transition-delay: 0ms; }
+  .comment-card:nth-child(2).visible { transition-delay: 100ms; }
+  .comment-card:nth-child(3).visible { transition-delay: 200ms; }
+  .comment-meta { display: flex; align-items: baseline; gap: 10px; }
+  .comment-handle { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--fg); letter-spacing: -0.005em; }
+  .comment-text { font-family: var(--sans); font-size: 16px; color: #3A3A3A; line-height: 1.55; letter-spacing: -0.005em; margin: 0; }
+  .comment-engagement { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+  .comment-heart { color: var(--accent); font-size: 14px; line-height: 1; transition: transform 200ms ease-out; }
+  .comment-card:hover .comment-heart { transform: scale(1.2); }
+  .comment-likes { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--fg2); letter-spacing: 0.02em; }
+@media (max-width: 640px) { .comment-card { flex-direction: column; } }
+  @media (prefers-reduced-motion: reduce) { .comment-card { opacity: 1; transform: none; transition: none; } }
+
+  /* Audience Response — self-contained module */
+  .audience-response {
+    margin-top: var(--space-4xl);
+    border-top: 0.5px solid var(--divider);
+    padding-top: var(--space-3xl);
+    margin-bottom: var(--space-4xl);
+  }
+  .audience-eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg2);
+    font-weight: 500;
+    margin-bottom: var(--space-xl);
+  }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+  .audience-video {
+    border: 0.5px solid var(--divider);
+    overflow: hidden;
+    width: 100%;
+  }
+  .audience-video img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .audience-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+  }
 </style>
 </head>
 <body>
@@ -455,10 +506,10 @@
     <button class="back-btn" onclick="showList()">&larr; All Work</button>
     <div class="detail-eyebrow">Brand Marketing &mdash; HBO Max</div>
     <h2 class="detail-title"><em>Recommended By</em></h2>
-    <div style="width:100%;margin-bottom:2rem;border:0.5px solid var(--border);overflow:hidden;"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="Recommended By banner" style="width:100%;height:auto;display:block;"></div>
+    <div style="width:100%;margin-bottom:2rem;border:0.5px solid var(--divider);overflow:hidden;"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_353de65395d34dd895f571fe862c8644~mv2.jpg/v1/fill/w_1894,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_edited.jpg" alt="Recommended By banner" style="width:100%;height:auto;display:block;"></div>
     <div class="main-video-wrap"><iframe id="hbo-iframe" src="https://player.vimeo.com/video/761512074?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
     <div class="carousel-label" style="margin-top:0.75rem;">Featured Videos</div>
-    <div class="carousel">
+    <div class="carousel" style="margin-bottom: var(--space-3xl);">
       <div class="carousel-thumb active" onclick="switchHBO('761512074',this)"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_cd8a995551fe4449a6835e9acdee7a1c~mv2.jpg/v1/fill/w_640,h_360,al_c,q_85,enc_avif,quality_auto/milly%20thumbnail.jpg" alt="Milly Alcock"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Milly Alcock</div></div>
       <div class="carousel-thumb" onclick="switchHBO('760755091',this)"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_0a20ab8cd1334b5dbaa4407cdf6a46bb~mv2.jpg/v1/fill/w_640,h_360,al_c,q_85,enc_avif,quality_auto/steve%20thumbnail.jpg" alt="Steve Touissant"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Steve Touissant</div></div>
       <div class="carousel-thumb" onclick="switchHBO('760755180',this)"><img loading="lazy" src="https://static.wixstatic.com/media/739b20_fc5a9de309dd4756a869bdf55c4231bc~mv2.jpg/v1/fill/w_640,h_360,al_c,q_85,enc_avif,quality_auto/fabien%20thumbnail.jpg" alt="Fabien Frankel"><div class="thumb-overlay"><span class="thumb-play">&#9654;</span></div><div class="thumb-title">Fabien Frankel</div></div>
@@ -468,29 +519,96 @@
         <div class="detail-meta-block"><div class="detail-meta-label">Role</div><div class="detail-meta-val">Creative Strategist<br>Producer<br>Writer<br>Director</div></div>
         <div class="detail-meta-block"><div class="detail-meta-label">Client</div><div class="detail-meta-val">HBO Max</div></div>
         <div class="detail-meta-block"><div class="detail-meta-label">Channels</div><div class="detail-meta-val">In-app<br>Dotcom<br>Social<br>Email</div></div>
+        <div class="detail-meta-block"><div class="detail-meta-label">Partners</div><div class="detail-meta-val">Editorial<br>Product<br>Design<br>Marketing<br>Social</div></div>
       </div>
       <div class="detail-body">
-        <h3>Overview</h3>
-        <p>Led the creative development and production of Recommended By — a brand marketing campaign and original short-form video series spotlighting talent sharing their favorite HBO Max titles.</p>
-        <h3>Scope &amp; Impact</h3>
-        <p>This campaign was a new-to-market feature and personalization and retention strategy with the goal of reducing churn and maximizing minutes watched on the platform. These recommendations lived in-app and off-platform (dotcom, social, and email), providing on-ramps to new programming and facilitating rediscovery of the classics.</p>
+        <h3>The Challenge</h3>
+        <p>With thousands of titles available and decision paralysis plaguing nearly half of all streaming consumers, HBO Max needed a new approach to content discovery. The goal: help users answer "What do I watch next?" while surfacing hidden gems across the catalog — from TCM classics to animation deep cuts.</p>
+
+        <h3>My Role</h3>
+        <p>I led the creative development from concept through execution, managing in-house and external production teams. Working cross-functionally across Editorial, Product, Design, Marketing, and Social, we distributed 80+ pieces of content across the platform homepage, social channels, and email in the Phase 1 rollout.</p>
+
+
+        <h3>The Approach</h3>
+        <p>Internal data showed users trusted personal recommendations over algorithms. I brought this insight to life by creating a curated selection of in-window titles for talent to choose from, ensuring their picks felt authentic while meeting platform priorities.</p>
       </div>
     </div>
-    <div class="quote-block" style="margin-top:2rem;border-top:0.5px solid var(--border);padding-top:2rem;">
-      <div style="border:0.5px solid var(--border);overflow:hidden;">
-        <img loading="lazy" src="https://static.wixstatic.com/media/739b20_17b2d2fc086e49c9a6a3cfe1ae1b318a~mv2.jpg" alt="Recommended By campaign" style="width:100%;display:block;">
-      </div>
-      <div class="quotes">
-        <div class="quote-item"><div class="quote-text">"I would patiently watch all these shows with Milly Alcock."</div><div class="quote-attr">@Sagitarius2redx &mdash; 1.1K likes</div></div>
-        <div class="quote-item"><div class="quote-text">"OMG her recommendations — I love her even more now."</div><div class="quote-attr">@mcfroggyswaggy2062</div></div>
-        <div class="quote-item"><div class="quote-text">"Loved Milly's choices and takes on these films. Can't wait to see her in more projects."</div><div class="quote-attr">@reactreel &mdash; 19 likes</div></div>
-      </div>
-    </div>
-    <div class="section-divider">
-      <div class="section-label">Featured Talent</div>
-      <p class="section-desc">Partnered with A-list celebrities and in-house talent to guest-curate personalized watchlists, driving viewership and reducing churn through authentic, relatable storytelling.</p>
+
+    <div style="margin-top: var(--space-4xl); margin-bottom: var(--space-4xl); border-top: 0.5px solid var(--divider); padding-top: var(--space-3xl);">
+      <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: var(--space-xl);">Featured Talent</div>
       <div class="talent-ticker-wrap"><div class="talent-track" id="talent-track"></div></div>
     </div>
+
+    <!-- Audience Response -->
+    <div class="audience-response">
+      <div class="audience-eyebrow">Audience Response</div>
+      <div class="audience-grid">
+        <div class="audience-video">
+          <img loading="lazy" src="https://static.wixstatic.com/media/739b20_17b2d2fc086e49c9a6a3cfe1ae1b318a~mv2.jpg" alt="Recommended By YouTube video">
+        </div>
+        <div class="comment-stack">
+          <div class="comment-card">
+            <div class="comment-meta">
+              <span class="comment-handle">@Sagitarius2redx</span>
+            </div>
+            <p class="comment-text">I would patiently watch all these shows with Milly Alcock.</p>
+            <div class="comment-engagement">
+              <span class="comment-heart">♥</span>
+              <span class="comment-likes">1.1K</span>
+            </div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-meta">
+              <span class="comment-handle">@reactreel</span>
+            </div>
+            <p class="comment-text">Loved Milly's choices and takes on these films. Can't wait to see her in more projects.</p>
+            <div class="comment-engagement">
+              <span class="comment-heart">♥</span>
+              <span class="comment-likes">19</span>
+            </div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-meta">
+              <span class="comment-handle">@mcfroggyswaggy2062</span>
+            </div>
+            <p class="comment-text">OMG her recommendations — I love her even more now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 1 Results -->
+    <div style="border-top: 0.5px solid var(--divider); padding-top: var(--space-3xl); margin-top: var(--space-4xl); margin-bottom: var(--space-4xl);">
+      <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; margin-bottom: var(--space-xl);">Phase 1 Results</div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
+        <div>
+          <div style="font-family: var(--serif); font-size: clamp(40px, 4.5vw, 64px); font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: var(--space-sm);">20M+</div>
+          <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; line-height: 1.3;">Views across talent &amp; owned channels</div>
+        </div>
+        <div>
+          <div style="font-family: var(--serif); font-size: clamp(40px, 4.5vw, 64px); font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: var(--space-sm);">11M</div>
+          <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; line-height: 1.3;">Organic views on a single TikTok</div>
+        </div>
+        <div>
+          <div style="font-family: var(--serif); font-size: clamp(40px, 4.5vw, 64px); font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: var(--fg); font-variation-settings: 'opsz' 144, 'SOFT' 40; margin-bottom: var(--space-sm);">48%</div>
+          <div style="font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg2); font-weight: 500; line-height: 1.3;">Began watching or added to watchlist</div>
+        </div>
+      </div>
+      <ul style="list-style: none; padding: 0; max-width: 640px;">
+        <li style="font-family: var(--sans); font-size: 16px; color: #3A3A3A; line-height: 1.55; letter-spacing: -0.005em; padding-left: 20px; position: relative; margin-bottom: var(--space-sm);">
+          <span style="position: absolute; left: 0; color: var(--accent);">→</span>
+          Catalog classics — titles with no active marketing support — saw the most significant lift in engagement
+        </li>
+        <li style="font-family: var(--sans); font-size: 16px; color: #3A3A3A; line-height: 1.55; letter-spacing: -0.005em; padding-left: 20px; position: relative; margin-bottom: var(--space-sm);">
+          <span style="position: absolute; left: 0; color: var(--accent);">→</span>
+          Higher platform stickiness — users who interacted with the series watched more new series per month
+        </li>
+      </ul>
+    </div>
+
+    <!-- Closing statement -->
+    <p style="font-family: var(--serif); font-size: clamp(22px, 2.2vw, 28px); font-weight: 400; font-style: italic; color: var(--fg); line-height: 1.4; font-variation-settings: 'opsz' 144, 'SOFT' 50; max-width: 720px; margin-top: var(--space-3xl); margin-bottom: var(--space-5xl); padding-top: var(--space-2xl); border-top: 0.5px solid var(--divider);">The campaign proved that editorially curated content could solve real user pain points while driving measurable platform engagement — providing a strategic blueprint for future product development.</p>
+
   </div>
 
   <!-- PARAMOUNT -->
@@ -536,7 +654,6 @@
       </div>
     </div>
 
-  </div>
   </div>
 
   <!-- INTEGRATED -->
@@ -870,6 +987,16 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+// Comment card staggered fade-up
+const commentObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      commentObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.comment-card').forEach(card => commentObserver.observe(card));
 
 </script>
 
